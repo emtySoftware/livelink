@@ -37,11 +37,11 @@ class Login(View):
 class Registration(View):
 
 	def get(self, request):
-		form = UserCreationForm()
+		form = lforms.UserForm()
 		return render(request, 'registration.html', locals())
 
 	def post(self, request):
-		form = UserCreationForm(request.POST)
+		form = lforms.UserForm(request.POST)
 
 		if form.is_valid():
 			form.save()

@@ -5,7 +5,6 @@ from django.contrib.auth.models import AbstractUser
 class User(AbstractUser):
 	links = models.ManyToManyField('links.Link', related_name='ulinks')
 
-
 	def __unicode__(self):
 		return self.get_full_name()
 
