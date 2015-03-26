@@ -1,0 +1,12 @@
+{% extends 'bases/accounts.html' %}
+
+{% block form %}
+<form action="" method="POST">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<input value="Crear" type="submit" />
+	{% if error %}
+	{{error}}
+	{% endif %}
+</form>
+{% endblock %}

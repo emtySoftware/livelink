@@ -1,0 +1,29 @@
+{% extends 'bases/accounts.html' %}
+
+{% block form %}
+
+<h1>Links</h1>
+<h2>Mis links ({{user}})</h2>
+
+<ul>
+{% for mlink in mlinks  %}
+<li><a href="{{mlink.url}}" target="_blank">{{mlink.url}}</a></li>
+{% endfor %}
+</ul>
+
+<h2>Mis Favs</h2>
+<ul>
+{% for flink in user.links.all  %}
+<li><a href="{{flink.url}}" target="_blank">{{flink.url}}</a> ||| <a href="{% url 'rfav' flink.id %}">Remove from favs</a></li>
+{% endfor %}
+</ul>
+
+
+<h2>Links de otros</h2>
+<ul>
+{% for olink in olinks  %}
+<li><strong>{{olink.user.get_full_name}}</strong>: <a href="{{olink.url}}" target="_blank">{{olink.url}}</a> ||| <a href="{% url 'fav' olink.id %}">Add to favs</a></li>
+{% endfor %}
+</ul>
+
+{% endblock %}
