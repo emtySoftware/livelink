@@ -27,7 +27,7 @@ class Login(View):
 			user = authenticate(username=username, password=password)
 			if user:
 				login(request, user)
-				return redirect('/')
+				return redirect(reverse('links'))
 			else:
 				error = 'Usuario no existe'
 
@@ -108,4 +108,4 @@ def rm_fav(request, id):
 
 def logout(request):
 	auth_logout(request)
-	return redirect('/')
+	return redirect(reverse('login'))
