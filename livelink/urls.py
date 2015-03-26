@@ -14,7 +14,7 @@ urlpatterns = patterns('',
     url(r'^fav/(?P<id>\d{1,})/$', add_fav, name='fav'),
     url(r'^rfav/(?P<id>\d{1,})/$', rm_fav, name='rfav'),
 
-    url(r'^login/$', Login.as_view()),
+    url(r'^login/$', Login.as_view(), name='login'),
     url(r'^logout/$', logout),
     url(r'^signup/$', Registration.as_view()),
     url(r'^admin/', include(admin.site.urls)),

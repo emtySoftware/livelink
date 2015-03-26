@@ -45,11 +45,11 @@ class Registration(View):
 
 		if form.is_valid():
 			form.save()
-			return redirect('/')
+			return redirect(reverse('login'))
 
 		return render(request, 'registration.html', locals())
 
-	def dispatch(self, request, **kwargs):
+	def dispatch(self, request, *args, **kwargs):
 		if request.user.is_authenticated():
 			return redirect('/')
 
